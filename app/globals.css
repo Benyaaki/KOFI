@@ -271,3 +271,17 @@ html,body{overflow-x:clip}
   html[lang='es'] .menuV2Intro h2{font-size:11.8vw;line-height:.9}
   html[lang='es'] .menuV2FooterSlogan{font-size:21px}
 }
+
+/* Final mobile framing: keep translated headlines inside the viewport */
+@media(max-width:560px){
+  .brandHero .heroCopy,.stopsSection>*,.stopsIntro,.stopPlace{min-width:0}
+  .brandHero h1{max-width:100%;font-size:13.2vw;line-height:.91}
+  .stopsIntro h2{max-width:100%;font-size:13vw;line-height:.88}
+  .stopPlace p{max-width:100%;font-size:clamp(18px,6vw,24px);line-height:1.05;overflow-wrap:anywhere}
+  html[lang='es'] .brandHero h1{font-size:11.2vw;line-height:.94;letter-spacing:-.065em}
+  html[lang='es'] .intro h2{font-size:13vw;line-height:.9}
+  html[lang='es'] .stopsIntro h2{font-size:11.7vw;line-height:.9;letter-spacing:-.065em}
+  .zoomSideDrink.right{top:-1%}
+}
+
+@media(min-width:561px){.zoomSideDrink.right{top:3%}}

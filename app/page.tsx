@@ -22,7 +22,7 @@ const copy = {
     stuff:'THE GOOD STUFF',pick:<>Pick your <em>mood.</em></>,pickBody:<>Sweet, creamy, bold or green.<br/>There’s a KOFI for every version of you.</>,fresh:<>FRESH<br/>&amp; CUTE<br/>DAILY</>,full:'Get the full menu',
     drinks:[['Strawberry matcha latte','fan favorite'],['Coconut water with matcha','iced matcha'],['Vanilla latte','iced coffee'],['Horchata latte, duh','iced coffee']],
     where:'WHERE TO FIND US',catch:<>Catch us<br/><em>around town.</em></>,whereBody:'We’re always on the move. Follow along for last-minute pop-ups, collabs and special drops.',follow:'Follow @kofi_miam',
-    booking:'PARTIES · WEDDINGS · BRAND EVENTS · JUST BECAUSE',party:<>Bring KOFI<br/>to your <em>party.</em></>,cute:'Let’s make it cute',mobile:<>Mobile coffee shop<br/>Miami, Florida</>,events:'Events & contact',slogan:<>COLOMBIAN COFFEE <i>♥︎</i> MIAMI ENERGY</>,top:'BACK TO TOP'
+    booking:'PARTIES · WEDDINGS · BRAND EVENTS · JUST BECAUSE',party:<>Bring KOFI<br/>to your <em>party.</em></>,cute:'Let’s make it cute',mobile:<>Mobile coffee shop<br/>Miami, Florida</>,events:'Events & contact',slogan:<>KOFI <i>♥︎</i> COFFEE <i>✦</i> MATCHA <i>♥︎</i> MIAMI</>,top:'BACK TO TOP'
   },
   es: {
     announcement: <>EL COFFEE TRUCK MÁS LINDO DE MIAMI <span>✦</span> ENCUÉNTRANOS ESTA SEMANA</>, nav:['Menú','Encuéntranos','Nuestra historia'], book:'Reserva el truck',
@@ -32,7 +32,7 @@ const copy = {
     stuff:'LO BUENO',pick:<>Elige tu <em>mood.</em></>,pickBody:<>Dulce, cremoso, intenso o verde.<br/>Hay un KOFI para cada versión de ti.</>,fresh:<>FRESCO<br/>&amp; LINDO<br/>A DIARIO</>,full:'Ver el menú completo',
     drinks:[['Latte de matcha con fresa','favorito'],['Agua de coco con matcha','matcha frío'],['Latte de vainilla','café frío'],['Latte de horchata','café frío']],
     where:'DÓNDE ENCONTRARNOS',catch:<>Encuéntranos<br/><em>por la ciudad.</em></>,whereBody:'Siempre estamos en movimiento. Síguenos para conocer pop-ups, colaboraciones y lanzamientos especiales.',follow:'Seguir a @kofi_miam',
-    booking:'FIESTAS · BODAS · EVENTOS DE MARCA · PORQUE SÍ',party:<>Lleva KOFI<br/>a tu <em>fiesta.</em></>,cute:'Hagámoslo especial',mobile:<>Cafetería móvil<br/>Miami, Florida</>,events:'Eventos y contacto',slogan:<>CAFÉ COLOMBIANO <i>♥︎</i> ENERGÍA DE MIAMI</>,top:'VOLVER ARRIBA'
+    booking:'FIESTAS · BODAS · EVENTOS DE MARCA · PORQUE SÍ',party:<>Lleva KOFI<br/>a tu <em>fiesta.</em></>,cute:'Hagámoslo especial',mobile:<>Cafetería móvil<br/>Miami, Florida</>,events:'Eventos y contacto',slogan:<>KOFI <i>♥︎</i> COFFEE <i>✦</i> MATCHA <i>♥︎</i> MIAMI</>,top:'VOLVER ARRIBA'
   }
 };
 const drinkNames=['Matchita Fresita','Coco Cloud','Don Kofi','Horchata Latte'];
