@@ -33,21 +33,27 @@ const menu = {
 
 const text = {
   en: {
+    announcement: <>MIAMI’S CUTEST COFFEE TRUCK <span>✦</span> CATCH US THIS WEEK</>,
     nav: ['Menu', 'Find us', 'Our story'], book: 'Book the truck', back: 'Back home',
     kicker: 'THE FULL KOFI MENU', title: <>Pick your <em>happy.</em></>,
     body: 'Creamy, bright, cozy or bold—there is a KOFI drink for every version of you.',
     coffee: 'Iced coffees', matcha: 'Iced matcha', classics: 'Classics',
     note: 'Ask us about seasonal drops and plant-based milk options.',
-    footer: 'Colombian coffee. Miami energy. Always made with love.', top: 'Back to top',
+    intro: 'COLOMBIAN ROOTS', energy: 'MIAMI ENERGY', made: <>Made with love,<br /><em>served with sparkle.</em></>, footer: 'Colombian coffee. Miami energy. Always made with love.', events:'Events & contact', home:'Home', top: 'Back to top',
   },
   es: {
+    announcement: <>EL COFFEE TRUCK MÁS LINDO DE MIAMI <span>✦</span> ENCUÉNTRANOS ESTA SEMANA</>,
     nav: ['Menú', 'Encuéntranos', 'Nuestra historia'], book: 'Reserva el truck', back: 'Volver al inicio',
     kicker: 'EL MENÚ COMPLETO', title: <>Elige tu <em>felicidad.</em></>,
     body: 'Cremoso, fresco, reconfortante o intenso: hay un KOFI para cada versión de ti.',
     coffee: 'Cafés fríos', matcha: 'Matchas fríos', classics: 'Clásicos',
     note: 'Pregunta por los sabores de temporada y las opciones de leche vegetal.',
-    footer: 'Café colombiano. Energía de Miami. Siempre hecho con amor.', top: 'Volver arriba',
+    intro: 'RAÍCES COLOMBIANAS', energy: 'ENERGÍA DE MIAMI', made: <>Hecho con amor,<br /><em>servido con brillo.</em></>, footer: 'Café colombiano. Energía de Miami. Siempre hecho con amor.', events:'Eventos y contacto', home:'Inicio', top: 'Volver arriba',
   },
+};
+
+const spanishDetails: Record<string,string> = {
+  'Todo de Ti Morena':'Latte de espresso batido con azúcar morena','Don Kofi':'Latte de vainilla','Kofi Cero':'Latte de vainilla sin azúcar','Acaramelado':'Latte de caramelo','Horchata Latte':'Latte de horchata','Abrázame Miel':'Latte frío con miel','Bella Nutella':'Latte de Nutella','Arequipe Latte':'Latte de dulce de leche','Coco Cloud':'Agua de coco con matcha','Matchita Fresita':'Latte de matcha con fresa','Te Amo Matcha':'Latte frío de matcha','Horchata Matcha':'Agua de arroz mexicana con matcha'
 };
 
 function MenuList({ title, number, items }: { title: string; number: string; items: MenuItem[] }) {
@@ -68,9 +74,11 @@ function MenuList({ title, number, items }: { title: string; number: string; ite
 
 export default function MenuPageClient() {
   const [language, setLanguage] = useState<Language>('en');
+  const [detached,setDetached]=useState(false);
   useEffect(() => {
     const saved = localStorage.getItem('kofi-lang');
-    if (saved === 'en' || saved === 'es') setLanguage(saved);
+    if (saved === 'en' || saved === 'es') { setLanguage(saved); document.documentElement.lang = saved; }
+    const onScroll=()=>setDetached(scrollY>42);onScroll();addEventListener('scroll',onScroll,{passive:true});return()=>removeEventListener('scroll',onScroll);
   }, []);
   const setLang = (value: Language) => {
     setLanguage(value);
@@ -78,11 +86,12 @@ export default function MenuPageClient() {
     document.documentElement.lang = value;
   };
   const t = text[language];
+  const localized=(items:MenuItem[])=>items.map(item=>language==='es'&&spanishDetails[item.name]?{...item,detail:spanishDetails[item.name]}:item);
 
   return (
     <div className="menuV2" id="top">
-      <div className="announcement">MIAMI’S CUTEST COFFEE TRUCK <span>✦</span> CATCH US THIS WEEK</div>
-      <nav className="nav floatingNav menuV2Nav" aria-label="Main navigation">
+      <div className="announcement">{t.announcement}</div>
+      <nav className={`nav floatingNav menuV2Nav ${detached?'navDetached':''}`} aria-label="Main navigation">
         <a className="brand logoPng" href="/" aria-label="Kofi home"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a>
         <div className="navLinks"><a href="/menu">{t.nav[0]}</a><a href="/#stops">{t.nav[1]}</a><a href="/#story">{t.nav[2]}</a></div>
         <div className="menuV2Actions">
@@ -97,17 +106,19 @@ export default function MenuPageClient() {
           <div className="menuV2HeroImage"><img src="/drinks-lineup-hq.png" alt="Four signature KOFI iced drinks" /><span>GOOD<br />MOOD<br />MENU</span></div>
         </section>
 
-        <section className="menuV2Intro" aria-label="Menu introduction"><p>COLOMBIAN ROOTS <span>✦</span> MIAMI ENERGY</p><h2>Made with love,<br /><em>served with sparkle.</em></h2></section>
+        <section className="menuV2Intro" aria-label="Menu introduction"><p>{t.intro} <span>✦</span> {t.energy}</p><h2>{t.made}</h2></section>
 
         <section className="menuV2Lists">
-          <MenuList title={t.coffee} number="01" items={menu.coffee} />
-          <MenuList title={t.matcha} number="02" items={menu.matcha} />
-          <MenuList title={t.classics} number="03" items={menu.classics} />
+          <div className="menuCharacterPeek menuCharacterWink" aria-hidden="true"><img src="/kofi-barista-wink.png" alt="" /></div>
+          <MenuList title={t.coffee} number="01" items={localized(menu.coffee)} />
+          <div className="menuCharacterDivider" aria-hidden="true"><img src="/kofi-barista-pour.png" alt="" /></div>
+          <MenuList title={t.matcha} number="02" items={localized(menu.matcha)} />
+          <MenuList title={t.classics} number="03" items={localized(menu.classics)} />
         </section>
       </main>
 
       <footer className="menuV2Footer">
-        <div className="menuV2FooterTop"><a href="/" className="menuV2FooterLogo"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">Events &amp; contact ↗</a></p><div><a href="/">Home</a><a href="/menu">Menu</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a></div></div>
+        <div className="menuV2FooterTop"><a href="/" className="menuV2FooterLogo"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href="/">{t.home}</a><a href="/menu">{t.nav[0]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a></div></div>
         <div className="menuV2FooterSlogan">KOFI <i>♥</i> COFFEE <i>✦</i> MATCHA <i>♥</i> MIAMI</div>
         <div className="menuV2FooterBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">{t.top} ↑</a></div>
       </footer>

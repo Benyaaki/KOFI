@@ -176,3 +176,64 @@ h1,h2,.brandHero h1,.zoomStory h2,.intro h2,.sectionHead h2,.stopsIntro h2,.book
 @media(prefers-reduced-motion:reduce){.heroCarrier,.drinkPairMoment img,.brandHero .heroTicker .tickerLoop{animation:none}}
 .menuV2Group>header i{font-size:0}.menuV2Group>header i:after{font-size:26px;line-height:1}
 html,body{overflow-x:clip}
+
+/* Softer organic joins */
+.floatingNav:before,.floatingNav:after{width:92px;height:76px;top:0;background:var(--brown)}
+.floatingNav:before{left:-90px;clip-path:ellipse(100% 100% at 100% 0)}
+.floatingNav:after{right:-90px;clip-path:ellipse(100% 100% at 0 0)}
+.homeFooter,.menuV2Footer{margin-top:74px}
+.homeFooter:before,.menuV2Footer:before{top:-73px;height:76px;background:radial-gradient(210px 72px at 50% 100%,var(--brown) 99%,transparent 100%) 0 0/420px 76px repeat-x}
+
+/* Character emerging from behind the first menu chapter */
+.menuV2Lists{position:relative;z-index:2}.menuCharacterPeek{position:absolute;z-index:4;right:2vw;top:-238px;width:340px;height:238px;overflow:hidden;pointer-events:none}.menuCharacterPeek img{width:100%;height:auto;object-fit:contain;transform:translateY(5px);filter:drop-shadow(0 14px 12px #4a260e18)}
+.menuV2Group:first-of-type{position:relative;z-index:5}
+.menuV2Group:nth-of-type(1){background:var(--cream)}.menuV2Group:nth-of-type(2){background:var(--pink)}.menuV2Group:nth-of-type(3){background:var(--blush)}.menuV2Group:nth-of-type(1) .menuV2Item:after{background:var(--cream)}.menuV2Group:nth-of-type(2) .menuV2Item:after{background:var(--pink);color:var(--cream)}.menuV2Group:nth-of-type(3) .menuV2Item:after{background:var(--blush)}
+@media(max-width:900px){.floatingNav:before,.floatingNav:after{width:66px}.floatingNav:before{left:-64px}.floatingNav:after{right:-64px}.menuCharacterPeek{right:3vw;width:340px;height:230px;top:-230px}.homeFooter:before,.menuV2Footer:before{background-size:330px 66px;height:66px;top:-63px}.homeFooter,.menuV2Footer{margin-top:64px}}
+@media(max-width:560px){.menuCharacterPeek{right:-22px;width:245px;height:165px;top:-165px}.homeFooter,.menuV2Footer{margin-top:48px}.homeFooter:before,.menuV2Footer:before{top:-47px;height:50px;background-image:radial-gradient(135px 48px at 50% 100%,var(--brown) 99%,transparent 100%);background-size:270px 50px}}
+
+/* Depth gallery adapted from the supplied floating-photo interaction */
+.floatingGallery{position:relative;height:980px;margin:0;background:var(--paper);overflow:hidden;isolation:isolate}.floatingGallery:before{content:'';position:absolute;inset:6% 4%;border:1px solid #4a260e2d;border-radius:52px;transform:rotate(-1deg)}.floatingPhoto{position:absolute;margin:0;overflow:hidden;border-radius:30px;border:8px solid var(--paper);box-shadow:0 18px 35px #4a260e20;transform:translate3d(var(--move-x),var(--move-y),0) rotate(var(--tilt));transition:transform .45s cubic-bezier(.2,.8,.2,1);will-change:transform}.floatingPhoto img{transition:transform .7s ease}.floatingPhoto:hover img{transform:scale(1.04)}.photoOne{--tilt:-4deg;left:5%;top:8%;width:24%;height:34%;z-index:2}.photoTwo{--tilt:2deg;left:37%;top:6%;width:27%;height:31%;z-index:3}.photoThree{--tilt:4deg;right:5%;top:9%;width:23%;height:38%;z-index:2}.photoFour{--tilt:-2deg;left:9%;bottom:7%;width:25%;height:32%;z-index:4}.photoFive{--tilt:3deg;left:39%;bottom:6%;width:27%;height:37%;z-index:3}.galleryDrinkCutout{position:absolute;z-index:4;right:7%;bottom:4%;width:18%;height:39%;object-fit:contain;filter:drop-shadow(0 20px 20px #4a260e24);transform:rotate(5deg);animation:galleryDrinkFloat 5.5s ease-in-out infinite}.galleryWatermark{position:absolute;z-index:0;left:50%;top:50%;width:68%;height:34%;object-fit:contain;transform:translate(-50%,-50%);filter:blur(4px);opacity:.07}.floatingGalleryNote{position:absolute;z-index:5;left:68%;top:48%;padding:22px 25px;border:2px solid;border-radius:22px;background:var(--pink);font:800 clamp(24px,3vw,48px)/.82 'Baloo 2',sans-serif;transform:rotate(-4deg);box-shadow:7px 8px 0 var(--cream)}.floatingGalleryNote em{color:var(--cream);font-style:normal}.floatingGalleryNote span{font-size:.6em}.galleryOrbit{position:absolute;left:5%;right:5%;top:47%;font:800 clamp(40px,7vw,100px)/1 'Baloo 2',sans-serif;color:#edb2d91b;white-space:nowrap;transform:rotate(-3deg);z-index:1}@keyframes galleryDrinkFloat{50%{translate:0 -10px}}
+
+/* Continuous surfaces and a curved ramp from the announcement into navigation */
+.floatingNav:before,.floatingNav:after{width:120px;height:76px;top:0;border-radius:0;mask:none;background:var(--brown);clip-path:path('M0 0 H120 V76 H108 C61 76 24 55 8 24 C4 16 2 8 0 0 Z')}.floatingNav:before{left:-119px;transform:none}.floatingNav:after{right:-119px;left:auto;transform:scaleX(-1)}.brandHero{min-height:910px}.brandStage{height:770px}.homeFooter,.menuV2Footer{margin-top:0!important}.homeFooter:before,.menuV2Footer:before{top:-72px}
+
+/* Both character poses emerge independently from the menu chapter edge */
+.menuCharacterWink{right:2vw}.menuCharacterDivider{position:relative;height:0;z-index:7}.menuCharacterDivider img{position:absolute;left:4vw;bottom:-1px;width:310px;height:auto;object-fit:contain;filter:none}.menuV2Group:first-of-type{z-index:5}.menuV2Group:nth-of-type(2){position:relative;z-index:8}
+@media(max-width:900px){.floatingGallery{height:900px}.photoOne{left:4%;width:29%}.photoTwo{left:36%;width:31%}.photoThree{right:3%;width:27%}.photoFour{left:6%;width:29%}.photoFive{left:36%;width:31%}.galleryDrinkCutout{right:3%;width:23%}.menuCharacterDivider img{left:3vw;width:280px}.menuCharacterWink{right:-15px}.brandHero{min-height:880px}.brandStage{height:720px}}
+@media(max-width:560px){.floatingGallery{height:1180px}.floatingGallery:before{inset:3% 16px;border-radius:28px}.floatingPhoto{border-width:5px;border-radius:22px}.photoOne{left:4%;top:4%;width:55%;height:24%}.photoTwo{left:auto;right:3%;top:23%;width:57%;height:22%}.photoThree{left:4%;right:auto;top:42%;width:51%;height:25%}.photoFour{left:auto;right:4%;bottom:19%;width:53%;height:21%}.photoFive{left:4%;bottom:2%;width:55%;height:23%}.galleryDrinkCutout{right:-2%;bottom:0;width:43%;height:25%}.galleryWatermark{width:115%;height:25%;opacity:.065}.floatingGalleryNote{left:7%;top:69%;font-size:27px}.galleryOrbit{display:none}.brandHero{min-height:800px}.brandStage{height:570px}.menuCharacterDivider img{left:-32px;width:220px}.menuCharacterWink{right:-42px;width:215px}.homeFooter:before,.menuV2Footer:before{top:-47px}}
+@media(prefers-reduced-motion:reduce){.floatingPhoto{transition:none}.galleryDrinkCutout{animation:none}}
+
+/* Clean photographic gallery with a true KOFI watermark */
+.floatingGallery:before,.galleryOrbit,.galleryDrinkCutout,.floatingGalleryNote{display:none!important}
+.floatingGallery{height:940px;padding:0;background:var(--paper)}
+.galleryWatermark{width:58%;height:30%;filter:brightness(0) saturate(100%) blur(3px);opacity:.055}
+.floatingPhoto{border:0;border-radius:28px;box-shadow:0 18px 42px #4a260e1a}
+.photoOne{left:5%;top:7%;width:25%;height:34%}.photoTwo{left:37.5%;top:4%;width:26%;height:31%}.photoThree{right:5%;top:9%;width:24%;height:37%}.photoFour{left:12%;bottom:5%;width:26%;height:33%}.photoFive{left:auto;right:18%;bottom:4%;width:29%;height:36%}
+
+/* Language controls and the navbar's attached-to-droplet transition */
+.homeNavActions{justify-self:end;display:flex;align-items:center;gap:16px}.homeNavActions .menuV2Lang{flex:none}
+.floatingNav{transition:top .55s cubic-bezier(.2,.9,.2,1),width .55s cubic-bezier(.2,.9,.2,1),height .55s ease,border-radius .55s ease,box-shadow .55s ease;will-change:top,width,border-radius}
+.floatingNav:before{left:-118px;clip-path:none;border-radius:0 0 0 100%/0 0 0 100%}
+.floatingNav:after{right:-118px;transform:none;clip-path:none;border-radius:0 0 100% 0/0 0 100% 0}
+.navDroplet{position:absolute;z-index:-1;left:50%;bottom:2px;width:18px;height:18px;border-radius:50% 50% 55% 50%;background:var(--brown);opacity:0;transform:translate(-50%,0) rotate(45deg);transition:opacity .2s,bottom .5s cubic-bezier(.2,.9,.2,1)}
+.floatingNav.navDetached{position:fixed;top:15px;width:min(1010px,90vw);height:70px;border-radius:38px;box-shadow:0 18px 45px #4a260e38;animation:navWaterDrop .7s cubic-bezier(.16,1,.3,1)}
+.floatingNav.navDetached:before,.floatingNav.navDetached:after{opacity:0;transform:scale(.2)}
+.floatingNav.navDetached .navDroplet{opacity:1;bottom:-7px}
+@keyframes navWaterDrop{0%{transform:translateX(-50%) scaleX(1.04) scaleY(.88)}48%{transform:translateX(-50%) scaleX(.97) scaleY(1.09)}75%{transform:translateX(-50%) scaleX(1.01) scaleY(.97)}100%{transform:translateX(-50%) scale(1)}}
+
+@media(max-width:900px){.floatingGallery{height:880px}.photoOne{left:4%;width:29%}.photoTwo{left:35.5%;width:30%}.photoThree{right:3%;width:28%}.photoFour{left:8%;width:31%}.photoFive{right:10%;width:35%}.homeNavActions{gap:8px}.homeNavActions .navCta{display:none}}
+@media(max-width:560px){.floatingGallery{height:1120px}.floatingPhoto{border-radius:20px}.photoOne{left:5%;top:3%;width:57%;height:23%}.photoTwo{left:auto;right:4%;top:22%;width:58%;height:21%}.photoThree{left:5%;right:auto;top:41%;width:53%;height:23%}.photoFour{left:auto;right:5%;bottom:19%;width:56%;height:21%}.photoFive{left:5%;right:auto;bottom:1%;width:62%;height:21%}.galleryWatermark{width:112%;height:22%;opacity:.05}.homeNavActions .menuV2Lang{display:flex}.floatingNav.navDetached{top:10px;width:94vw;height:64px;border-radius:32px}}
+@media(prefers-reduced-motion:reduce){.floatingNav.navDetached{animation:none}.floatingNav{transition:none}}
+
+/* Final navbar join: continuous shallow ramps with an overlap that prevents seams */
+.floatingNav:before,.floatingNav:after{top:0;width:224px;height:76px;border-radius:0;clip-path:path('M0 0 H224 V76 H206 C142 76 76 50 0 0 Z');background:var(--brown)}
+.floatingNav:before{left:-216px;transform:none}
+.floatingNav:after{left:auto;right:-216px;transform:scaleX(-1)}
+.floatingNav:not(.navDetached){border-radius:0}
+.floatingNav.navDetached:before,.floatingNav.navDetached:after{opacity:0;transform:scale(.2)}
+.navDroplet{display:none!important}
+
+/* The pouring character now sinks behind the next section edge */
+.menuCharacterDivider img{bottom:-15px}
+@media(max-width:900px){.floatingNav:before,.floatingNav:after{width:150px;clip-path:path('M0 0 H150 V76 H135 C92 76 46 49 0 0 Z')}.floatingNav:before{left:-143px}.floatingNav:after{right:-143px}.menuCharacterDivider img{bottom:-13px}}
+@media(max-width:560px){.menuCharacterDivider img{bottom:-11px}}
