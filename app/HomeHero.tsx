@@ -12,6 +12,6 @@ export default function HomeHero({text}:{text:HeroText}){
       <img className="heroCarrier" src={withBasePath('/kofi-carrier.png')} alt="KOFI pink drink carrier with two signature drinks"/>
       <span className="stageSpark sparkA">✦</span>
     </div>
-    <div className="heroTicker" aria-hidden="true"><div className="tickerLoop"><span>{text.ticker} <b>✦</b> {text.ticker} <b>♥</b> KOFI <b>✦</b> </span><span>{text.ticker} <b>✦</b> {text.ticker} <b>♥</b> KOFI <b>✦</b> </span></div></div>
+    <div className="heroTicker" aria-hidden="true"><div className="tickerLoop"><span>{text.ticker} <b>✦</b> {text.ticker} <b>♥︎</b> KOFI <b>✦</b> </span><span>{text.ticker} <b>✦</b> {text.ticker} <b>♥︎</b> KOFI <b>✦</b> </span></div></div>
   </section>
 }

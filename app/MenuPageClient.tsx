@@ -76,6 +76,7 @@ function MenuList({ title, number, items }: { title: string; number: string; ite
 export default function MenuPageClient() {
   const [language, setLanguage] = useState<Language>('en');
   const [detached,setDetached]=useState(false);
+  const [menuOpen,setMenuOpen]=useState(false);
   useEffect(() => {
     const saved = localStorage.getItem('kofi-lang');
     if (saved === 'en' || saved === 'es') { setLanguage(saved); document.documentElement.lang = saved; }
@@ -96,9 +97,11 @@ export default function MenuPageClient() {
         <a className="brand logoPng" href={withBasePath('/')} aria-label="Kofi home"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a>
         <div className="navLinks"><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href={withBasePath('/#stops')}>{t.nav[1]}</a><a href={withBasePath('/#story')}>{t.nav[2]}</a></div>
         <div className="menuV2Actions">
+          <button className={`mobileMenuToggle ${menuOpen?'open':''}`} type="button" aria-label={menuOpen?'Close menu':'Open menu'} aria-expanded={menuOpen} onClick={()=>setMenuOpen(value=>!value)}><span/><span/></button>
           <div className="menuV2Lang" aria-label="Language"><button className={language === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={language === 'es' ? 'active' : ''} onClick={() => setLang('es')}>ES</button></div>
-          <a className="navCta" href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">{t.book} <span>↗</span></a>
+          <a className="navCta" href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">{t.book} <span>↗︎</span></a>
         </div>
+        <div className={`mobileMenuPanel ${menuOpen?'open':''}`}><a href={withBasePath('/menu/')} onClick={()=>setMenuOpen(false)}>{t.nav[0]}</a><a href={withBasePath('/#stops')} onClick={()=>setMenuOpen(false)}>{t.nav[1]}</a><a href={withBasePath('/#story')} onClick={()=>setMenuOpen(false)}>{t.nav[2]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">{t.book} <span>↗︎</span></a></div>
       </nav>
 
       <main>
@@ -119,9 +122,9 @@ export default function MenuPageClient() {
       </main>
 
       <footer className="menuV2Footer">
-        <div className="menuV2FooterTop"><a href={withBasePath('/')} className="menuV2FooterLogo"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href={withBasePath('/')}>{t.home}</a><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a></div></div>
-        <div className="menuV2FooterSlogan">KOFI <i>♥</i> COFFEE <i>✦</i> MATCHA <i>♥</i> MIAMI</div>
-        <div className="menuV2FooterBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">{t.top} ↑</a></div>
+        <div className="menuV2FooterTop"><a href={withBasePath('/')} className="menuV2FooterLogo"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗︎</a></p><div><a href={withBasePath('/')}>{t.home}</a><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗︎</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗︎</a></div></div>
+        <div className="menuV2FooterSlogan">KOFI <i>♥︎</i> COFFEE <i>✦</i> MATCHA <i>♥︎</i> MIAMI</div>
+        <div className="menuV2FooterBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗︎</a><a href="#top">{t.top} ↑</a></div>
       </footer>
     </div>
   );

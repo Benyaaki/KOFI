@@ -237,3 +237,27 @@ html,body{overflow-x:clip}
 .menuCharacterDivider img{bottom:-15px}
 @media(max-width:900px){.floatingNav:before,.floatingNav:after{width:150px;clip-path:path('M0 0 H150 V76 H135 C92 76 46 49 0 0 Z')}.floatingNav:before{left:-143px}.floatingNav:after{right:-143px}.menuCharacterDivider img{bottom:-13px}}
 @media(max-width:560px){.menuCharacterDivider img{bottom:-11px}}
+
+/* Mobile navigation, fluid immersion and collision-free menu characters */
+.mobileMenuToggle,.mobileMenuPanel{display:none}
+@media(max-width:560px){
+  .floatingNav{overflow:visible}
+  .mobileMenuToggle{display:grid;width:38px;height:38px;padding:9px;border:1px solid #f4f2cd55;border-radius:50%;background:transparent;place-content:center;gap:6px;cursor:pointer}
+  .mobileMenuToggle>span{display:block;width:17px;height:1.5px;background:var(--cream);transition:transform .25s,translate .25s}
+  .mobileMenuToggle.open>span:first-child{transform:rotate(45deg);translate:0 4px}
+  .mobileMenuToggle.open>span:last-child{transform:rotate(-45deg);translate:0 -4px}
+  .mobileMenuPanel{position:absolute;z-index:-1;display:flex;left:0;right:0;top:45px;padding:42px 22px 22px;flex-direction:column;gap:0;background:var(--brown);color:var(--cream);border-radius:0 0 28px 28px;box-shadow:0 22px 30px #4a260e30;opacity:0;visibility:hidden;transform:translateY(-14px) scaleY(.94);transform-origin:top;transition:opacity .25s,transform .32s cubic-bezier(.2,.9,.2,1),visibility .25s}
+  .mobileMenuPanel.open{opacity:1;visibility:visible;transform:none}
+  .mobileMenuPanel a{padding:14px 2px;border-top:1px solid #f4f2cd30;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .mobileMenuPanel a:last-child{color:var(--pink)}
+  .homeNavActions,.menuV2Actions{gap:7px}
+  .zoomStory{height:190vh}
+  .zoomPin{transform:translateZ(0);backface-visibility:hidden}
+  .zoomPortal{transition:none!important;will-change:transform;border-radius:30px;contain:paint;backface-visibility:hidden}
+  .zoomMainProduct,.zoomSideDrink{filter:none;will-change:auto}
+  .homeFooter:before,.menuV2Footer:before{background-position:50% 0!important}
+  .menuV2Intro{padding-bottom:225px}
+  .menuCharacterPeek{top:-180px;height:180px}
+  .menuV2Group:nth-of-type(1){padding-bottom:245px}
+  .menuV2Group:nth-of-type(2){padding-top:105px}
+}
