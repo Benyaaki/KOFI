@@ -1,5 +1,13 @@
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {};
+const pagesBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: pagesBasePath,
+  assetPrefix: pagesBasePath || undefined,
+  images: { unoptimized: true },
+};
 
 export default nextConfig;

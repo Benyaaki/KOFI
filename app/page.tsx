@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import HomeHero from './HomeHero';
 import ZoomStory from './ZoomStory';
 import ParallaxGallery from './ParallaxGallery';
+import { withBasePath } from './basePath';
 
 const stops = [
   { day: '30', month: 'AGO', place: 'North Miami', address: 'Biscayne 112', time: '10:00 — 16:30' },
@@ -47,8 +48,8 @@ export default function Home() {
     <main>
       <div className="announcement">{t.announcement}</div>
       <nav className={`nav floatingNav ${detached?'navDetached':''}`} aria-label="Main navigation">
-        <a className="brand logoPng" href="#top" aria-label="Kofi home"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a>
-        <div className="navLinks"><a href="/menu">{t.nav[0]}</a><a href="#stops">{t.nav[1]}</a><a href="#story">{t.nav[2]}</a></div>
+        <a className="brand logoPng" href="#top" aria-label="Kofi home"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a>
+        <div className="navLinks"><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href="#stops">{t.nav[1]}</a><a href="#story">{t.nav[2]}</a></div>
         <div className="homeNavActions"><div className="menuV2Lang" aria-label="Language"><button className={language==='en'?'active':''} onClick={()=>setLang('en')}>EN</button><span>/</span><button className={language==='es'?'active':''} onClick={()=>setLang('es')}>ES</button></div><a className="navCta" href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">{t.book} <span>↗</span></a></div>
       </nav>
 
@@ -62,17 +63,17 @@ export default function Home() {
         <div className="miniStamp">MADE<br />WITH<br />LOVE<br /><span>♥</span></div>
       </section>
 
-      <div className="drinkPairMoment" aria-label="Two KOFI signature iced coffees"><img className="drinkPairPrimary" src="/drink-marshmallow.png" alt="KOFI marshmallow iced coffee"/><img className="drinkPairSecondary" src="/drink-vanilla.png" alt="KOFI vanilla iced coffee"/></div>
+      <div className="drinkPairMoment" aria-label="Two KOFI signature iced coffees"><img className="drinkPairPrimary" src={withBasePath('/drink-marshmallow.png')} alt="KOFI marshmallow iced coffee"/><img className="drinkPairSecondary" src={withBasePath('/drink-vanilla.png')} alt="KOFI vanilla iced coffee"/></div>
 
       <ParallaxGallery />
 
       <section className="menuSection" id="menu">
         <div className="sectionHead"><div><p className="sectionNo">02 — {t.stuff}</p><h2>{t.pick}</h2></div><p>{t.pickBody}</p></div>
         <div className="menuGrid">
-          <div className="menuPhoto cathedral"><img src="/drinks-lineup-hq.png" alt="KOFI signature drink lineup" /><span className="roundLabel">{t.fresh}</span></div>
+          <div className="menuPhoto cathedral"><img src={withBasePath('/drinks-lineup-hq.png')} alt="KOFI signature drink lineup" /><span className="roundLabel">{t.fresh}</span></div>
           <div className="menuList">
             {drinkNames.map((name, index) => <article className="menuItem" key={name}><span className="itemNumber">0{index + 1}</span><div><p className="itemTag">{t.drinks[index][1]}</p><h3>{name}</h3><p>{t.drinks[index][0]}</p></div><strong>{prices[index]}</strong></article>)}
-            <a className="fullMenu" href="/menu">{t.full} <span>→</span></a>
+            <a className="fullMenu" href={withBasePath('/menu/')}>{t.full} <span>→</span></a>
           </div>
         </div>
       </section>
@@ -82,9 +83,9 @@ export default function Home() {
         <div className="stopsList">{stops.map((stop) => <article className="stop" key={`${stop.day}-${stop.place}`}><div className="date"><strong>{stop.day}</strong><span>{stop.month}</span></div><div className="stopPlace"><p>{stop.place}</p><span>{stop.address}</span></div><div className="stopTime">{stop.time}</div><span className="arrow">↗</span></article>)}</div>
       </section>
 
-      <section className="booking"><picture><source media="(max-width: 560px)" srcSet="/kofi-front.jpg"/><img src="/kofi-front-hq.png" alt="Front view of the pink KOFI coffee truck" /></picture><div className="bookingOverlay"><p>{t.booking}</p><h2>{t.party}</h2><a className="button cream" href="mailto:areconyg@gmail.com?subject=KOFI%20event%20inquiry">{t.cute} <span>↗</span></a></div></section>
+      <section className="booking"><picture><source media="(max-width: 560px)" srcSet={withBasePath('/kofi-front.jpg')}/><img src={withBasePath('/kofi-front-hq.png')} alt="Front view of the pink KOFI coffee truck" /></picture><div className="bookingOverlay"><p>{t.booking}</p><h2>{t.party}</h2><a className="button cream" href="mailto:areconyg@gmail.com?subject=KOFI%20event%20inquiry">{t.cute} <span>↗</span></a></div></section>
 
-      <footer className="homeFooter"><div className="footerTop"><a className="footerLogo" href="#top"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a><p>{t.mobile}<br/><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a><a href="/menu">{t.full} →</a></div></div><div className="footerSlogan">{t.slogan}</div><div className="footerBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">{t.top} ↑</a></div></footer>
+      <footer className="homeFooter"><div className="footerTop"><a className="footerLogo" href="#top"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a><p>{t.mobile}<br/><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a><a href={withBasePath('/menu/')}>{t.full} →</a></div></div><div className="footerSlogan">{t.slogan}</div><div className="footerBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">{t.top} ↑</a></div></footer>
     </main>
   );
 }

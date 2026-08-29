@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { withBasePath } from './basePath';
 
 type Language = 'en' | 'es';
 type MenuItem = { name: string; detail: string; price: string };
@@ -92,8 +93,8 @@ export default function MenuPageClient() {
     <div className="menuV2" id="top">
       <div className="announcement">{t.announcement}</div>
       <nav className={`nav floatingNav menuV2Nav ${detached?'navDetached':''}`} aria-label="Main navigation">
-        <a className="brand logoPng" href="/" aria-label="Kofi home"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a>
-        <div className="navLinks"><a href="/menu">{t.nav[0]}</a><a href="/#stops">{t.nav[1]}</a><a href="/#story">{t.nav[2]}</a></div>
+        <a className="brand logoPng" href={withBasePath('/')} aria-label="Kofi home"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a>
+        <div className="navLinks"><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href={withBasePath('/#stops')}>{t.nav[1]}</a><a href={withBasePath('/#story')}>{t.nav[2]}</a></div>
         <div className="menuV2Actions">
           <div className="menuV2Lang" aria-label="Language"><button className={language === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={language === 'es' ? 'active' : ''} onClick={() => setLang('es')}>ES</button></div>
           <a className="navCta" href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">{t.book} <span>↗</span></a>
@@ -102,23 +103,23 @@ export default function MenuPageClient() {
 
       <main>
         <section className="menuV2Hero">
-          <div className="menuV2HeroCopy"><a href="/" className="menuV2Back">← {t.back}</a><p>{t.kicker}</p><h1>{t.title}</h1><div className="menuV2SparkRule" aria-hidden="true"><span>✦</span></div><p className="menuV2Lead">{t.body}</p></div>
-          <div className="menuV2HeroImage"><img src="/drinks-lineup-hq.png" alt="Four signature KOFI iced drinks" /><span>GOOD<br />MOOD<br />MENU</span></div>
+          <div className="menuV2HeroCopy"><a href={withBasePath('/')} className="menuV2Back">← {t.back}</a><p>{t.kicker}</p><h1>{t.title}</h1><div className="menuV2SparkRule" aria-hidden="true"><span>✦</span></div><p className="menuV2Lead">{t.body}</p></div>
+          <div className="menuV2HeroImage"><img src={withBasePath('/drinks-lineup-hq.png')} alt="Four signature KOFI iced drinks" /><span>GOOD<br />MOOD<br />MENU</span></div>
         </section>
 
         <section className="menuV2Intro" aria-label="Menu introduction"><p>{t.intro} <span>✦</span> {t.energy}</p><h2>{t.made}</h2></section>
 
         <section className="menuV2Lists">
-          <div className="menuCharacterPeek menuCharacterWink" aria-hidden="true"><img src="/kofi-barista-wink.png" alt="" /></div>
+          <div className="menuCharacterPeek menuCharacterWink" aria-hidden="true"><img src={withBasePath('/kofi-barista-wink.png')} alt="" /></div>
           <MenuList title={t.coffee} number="01" items={localized(menu.coffee)} />
-          <div className="menuCharacterDivider" aria-hidden="true"><img src="/kofi-barista-pour.png" alt="" /></div>
+          <div className="menuCharacterDivider" aria-hidden="true"><img src={withBasePath('/kofi-barista-pour.png')} alt="" /></div>
           <MenuList title={t.matcha} number="02" items={localized(menu.matcha)} />
           <MenuList title={t.classics} number="03" items={localized(menu.classics)} />
         </section>
       </main>
 
       <footer className="menuV2Footer">
-        <div className="menuV2FooterTop"><a href="/" className="menuV2FooterLogo"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href="/">{t.home}</a><a href="/menu">{t.nav[0]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a></div></div>
+        <div className="menuV2FooterTop"><a href={withBasePath('/')} className="menuV2FooterLogo"><img src={withBasePath('/kofi-logo-transparent.png')} alt="KOFI" /></a><p>{t.footer}<br /><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">{t.events} ↗</a></p><div><a href={withBasePath('/')}>{t.home}</a><a href={withBasePath('/menu/')}>{t.nav[0]}</a><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a></div></div>
         <div className="menuV2FooterSlogan">KOFI <i>♥</i> COFFEE <i>✦</i> MATCHA <i>♥</i> MIAMI</div>
         <div className="menuV2FooterBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">{t.top} ↑</a></div>
       </footer>

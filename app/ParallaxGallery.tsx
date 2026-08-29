@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import type { CSSProperties } from 'react';
+import { withBasePath } from './basePath';
 
 const photos = [
   { src: '/gallery-choco.png', alt: 'Three chocolate KOFI iced coffees', className: 'floatingPhoto photoOne', depth: 1.1 },
@@ -37,10 +38,10 @@ export default function ParallaxGallery() {
         });
       }}
     >
-      <img className="galleryWatermark" src="/kofi-logo-transparent.png" alt="" aria-hidden="true" />
+      <img className="galleryWatermark" src={withBasePath('/kofi-logo-transparent.png')} alt="" aria-hidden="true" />
       {photos.map((photo) => (
         <figure className={photo.className} data-depth={photo.depth} style={{ '--move-x': '0px', '--move-y': '0px' } as CSSProperties} key={photo.src}>
-          <img src={photo.src} alt={photo.alt} />
+          <img src={withBasePath(photo.src)} alt={photo.alt} />
         </figure>
       ))}
     </section>
