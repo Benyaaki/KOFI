@@ -106,8 +106,6 @@ export default function MenuPageClient() {
             <MenuList title={t.classics} number="03" items={menu.classics} />
           </div>
         </section>
-
-        <section className="menuV2Note"><img src="/drink-matcha.png" alt="KOFI strawberry matcha" /><p><span>✦</span> {t.note} <span>✦</span></p><img src="/drink-marshmallow.png" alt="KOFI marshmallow iced coffee" /></section>
       </main>
 
       <footer className="menuV2Footer">
