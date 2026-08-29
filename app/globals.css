@@ -175,4 +175,4 @@ h1,h2,.brandHero h1,.zoomStory h2,.intro h2,.sectionHead h2,.stopsIntro h2,.book
 @media(max-width:560px){.announcement{display:none}.floatingNav{top:0}.floatingNav:before,.floatingNav:after{display:none}.brandHero{padding-top:92px;min-height:760px}.brandHero .heroCopy{padding-top:82px}.brandStage{height:540px}.brandHero .heroTicker .tickerLoop{animation-duration:25s}.drinkPairMoment{height:300px;margin-bottom:45px}.drinkPairPrimary{height:290px;right:2%;top:-15px}.drinkPairSecondary{height:225px;left:1%;top:50px}.menuV2Hero{padding-top:112px}.menuV2Group{padding:75px 20px 85px}.menuV2Group>header{padding-bottom:65px}.menuV2Group h2{font-size:17vw}.homeFooter,.menuV2Footer{margin-top:38px}.homeFooter:before,.menuV2Footer:before{top:-37px;height:40px;background-size:108px 40px;background-image:radial-gradient(54px 38px at 50% 100%,var(--brown) 98%,transparent 100%)}}
 @media(prefers-reduced-motion:reduce){.heroCarrier,.drinkPairMoment img,.brandHero .heroTicker .tickerLoop{animation:none}}
 .menuV2Group>header i{font-size:0}.menuV2Group>header i:after{font-size:26px;line-height:1}
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
