@@ -61,8 +61,6 @@ export default function Home() {
         <div className="stopsList">{stops.map((stop) => <article className="stop" key={`${stop.day}-${stop.place}`}><div className="date"><strong>{stop.day}</strong><span>{stop.month}</span></div><div className="stopPlace"><p>{stop.place}</p><span>{stop.address}</span></div><div className="stopTime">{stop.time}</div><span className="arrow">↗</span></article>)}</div>
       </section>
 
-      <div className="drinkMoment drinkThree" aria-hidden="true"><img src="/drink-matcha.png" alt=""/><span>YOUR MATCHA<br/>MOMENT</span></div>
-
       <section className="booking"><img src="/kofi-front.jpg" alt="Front view of the pink KOFI coffee truck" /><div className="bookingOverlay"><p>PARTIES · WEDDINGS · BRAND EVENTS · JUST BECAUSE</p><h2>Bring KOFI<br />to your <em>party.</em></h2><a className="button cream" href="mailto:areconyg@gmail.com?subject=KOFI%20event%20inquiry">Let’s make it cute <span>↗</span></a></div></section>
 
       <footer className="homeFooter"><div className="footerTop"><a className="footerLogo" href="#top"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a><p>Mobile coffee shop<br />Miami, Florida<br/><a href="mailto:areconyg@gmail.com?subject=KOFI%20event">Events &amp; contact ↗</a></p><div><a href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@kofi_miam" target="_blank" rel="noreferrer">TikTok ↗</a><a href="/menu">Full menu →</a></div></div><div className="footerSlogan">COLOMBIAN COFFEE <i>♥</i> MIAMI ENERGY</div><div className="footerBottom"><span>© 2026 KOFI MIAMI</span><a href="https://calfers.com" target="_blank" rel="noreferrer">HECHO POR CALFERS ↗</a><a href="#top">BACK TO TOP ↑</a></div></footer>
