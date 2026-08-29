@@ -1,4 +1,5 @@
 import HomeHero from './HomeHero';
+import ZoomStory from './ZoomStory';
 
 const stops = [
   { day: '30', month: 'AGO', place: 'North Miami', address: 'Biscayne 112', time: '10:00 — 16:30' },
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <div className="announcement">MIAMI’S CUTEST COFFEE TRUCK <span>✦</span> CATCH US THIS WEEK</div>
-      <nav className="nav" aria-label="Main navigation">
+      <nav className="nav floatingNav" aria-label="Main navigation">
         <a className="brand logoPng" href="#top" aria-label="Kofi home"><img src="/kofi-logo-transparent.png" alt="KOFI" /></a>
         <div className="navLinks"><a href="/menu">Menu</a><a href="#stops">Find us</a><a href="#story">Our story</a></div>
         <a className="navCta" href="https://www.instagram.com/kofi_miam/" target="_blank" rel="noreferrer">Book the truck <span>↗</span></a>
@@ -25,13 +26,15 @@ export default function Home() {
 
       <HomeHero />
 
+      <ZoomStory />
+
       <section className="intro" id="story">
         <div className="introLabel"><span>01</span> THE KOFI MOOD</div>
         <div className="introCopy"><p>Not your average cup of coffee.</p><h2>We’re serving <em>happy</em><br />in a cup.</h2><p className="introBody">KOFI is a Colombian-owned mobile coffee shop made for sweet moments, spontaneous plans, and drinks that deserve their own photoshoot.</p></div>
         <div className="miniStamp">MADE<br />WITH<br />LOVE<br /><span>♥</span></div>
       </section>
 
-      <div className="drinkDivider" aria-hidden="true"><img src="/drink-vanilla.png" alt=""/><span>GOOD DAYS<br/>START HERE</span><img src="/drink-matcha.png" alt=""/></div>
+      <div className="drinkMoment drinkOne" aria-hidden="true"><img src="/drink-vanilla.png" alt=""/><span>GOOD DAYS<br/>START HERE</span></div>
 
       <section className="gallery" aria-label="KOFI moments">
         <figure className="galleryTall"><img src="/kofi-matcha.jpg" alt="Iced matcha in front of the KOFI truck" /></figure>
@@ -39,6 +42,8 @@ export default function Home() {
         <figure className="gallerySmall"><img src="/kofi-girl.jpg" alt="Customer enjoying a drink beside the KOFI truck" /></figure>
         <div className="galleryNote">sip<br /><em>sip</em><br />hooray! <span>✦</span></div>
       </section>
+
+      <div className="drinkMoment drinkTwo" aria-hidden="true"><span>SWEET, BOLD<br/>&amp; A LITTLE EXTRA</span><img src="/drink-marshmallow.png" alt=""/></div>
 
       <section className="menuSection" id="menu">
         <div className="sectionHead"><div><p className="sectionNo">02 — THE GOOD STUFF</p><h2>Pick your <em>mood.</em></h2></div><p>Sweet, creamy, bold or green.<br />There’s a KOFI for every version of you.</p></div>
@@ -55,6 +60,8 @@ export default function Home() {
         <div className="stopsIntro"><p className="sectionNo">03 — WHERE TO FIND US</p><h2>Catch us<br /><em>around town.</em></h2><p>We’re always on the move. Follow along for last-minute pop-ups, collabs and special drops.</p><a className="button light" href="https://www.instagram.com/kofi_miam" target="_blank" rel="noreferrer">Follow @kofi_miam <span>↗</span></a></div>
         <div className="stopsList">{stops.map((stop) => <article className="stop" key={`${stop.day}-${stop.place}`}><div className="date"><strong>{stop.day}</strong><span>{stop.month}</span></div><div className="stopPlace"><p>{stop.place}</p><span>{stop.address}</span></div><div className="stopTime">{stop.time}</div><span className="arrow">↗</span></article>)}</div>
       </section>
+
+      <div className="drinkMoment drinkThree" aria-hidden="true"><img src="/drink-matcha.png" alt=""/><span>YOUR MATCHA<br/>MOMENT</span></div>
 
       <section className="booking"><img src="/kofi-front.jpg" alt="Front view of the pink KOFI coffee truck" /><div className="bookingOverlay"><p>PARTIES · WEDDINGS · BRAND EVENTS · JUST BECAUSE</p><h2>Bring KOFI<br />to your <em>party.</em></h2><a className="button cream" href="mailto:areconyg@gmail.com?subject=KOFI%20event%20inquiry">Let’s make it cute <span>↗</span></a></div></section>
 

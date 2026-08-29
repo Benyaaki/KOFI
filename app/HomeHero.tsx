@@ -1,30 +1,17 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-
-const slides = [
-  { src:'/drink-matcha.png', name:'Matchita Fresita', tone:'matcha' },
-  { src:'/drink-brown-sugar.png', name:'Todo de Ti Morena', tone:'coffee' },
-  { src:'/drink-vanilla.png', name:'Don Kofi', tone:'vanilla' },
-  { src:'/drink-marshmallow.png', name:'Marshmallow Latte', tone:'mallow' },
-];
+import { useRef } from 'react';
 
 export default function HomeHero(){
-  const [active,setActive]=useState(0); const startX=useRef(0);
-  const move=(next:number)=>setActive((next+slides.length)%slides.length);
-  useEffect(()=>{const timer=setInterval(()=>setActive(v=>(v+1)%slides.length),5200);return()=>clearInterval(timer)},[]);
-  return <section className={`hero productHero ${slides[active].tone}`} id="top">
-    <div className="heroCopy">
-      <p className="eyebrow">Mobile coffee shop · Miami, FL</p>
-      <h1>COFFEE WITH<br/><em>MAIN CHARACTER</em><br/>ENERGY.</h1>
-      <p className="heroText">Colorful sips, Colombian roots, and a little bit of sparkle. Meet the drink that matches your mood.</p>
-      <div className="heroActions"><a className="button dark" href="#stops">Find the truck <span>↓</span></a><a className="textLink" href="/menu">Explore the menu <span>→</span></a></div>
+  const stage=useRef<HTMLDivElement>(null);
+  return <section className="hero brandHero" id="top" onPointerMove={e=>{if(!stage.current)return;const r=stage.current.getBoundingClientRect();stage.current.style.setProperty('--mx',`${(e.clientX-r.left)/r.width-.5}`);stage.current.style.setProperty('--my',`${(e.clientY-r.top)/r.height-.5}`)}} onPointerLeave={()=>{stage.current?.style.setProperty('--mx','0');stage.current?.style.setProperty('--my','0')}}>
+    <div className="heroCopy"><p className="eyebrow">Mobile coffee shop · Miami, FL</p><h1>COFFEE WITH<br/><em>MAIN CHARACTER</em><br/>ENERGY.</h1><p className="heroText">Colorful sips, Colombian roots, and a little bit of sparkle. Find our pink truck popping up around Miami.</p><div className="heroActions"><a className="button dark" href="#stops">Find the truck <span>↓</span></a><a className="textLink" href="/menu">Explore the menu <span>→</span></a></div></div>
+    <div className="brandStage" ref={stage}>
+      <div className="stageWord" aria-hidden="true">KOFI</div>
+      <img className="heroCarrier" src="/kofi-carrier.png" alt="KOFI pink drink carrier with two signature drinks"/>
+      <div className="characterCard"><img src="/kofi-character.jpg" alt="KOFI coffee character artwork"/><span>OUR LITTLE<br/>COFFEE FRIEND</span></div>
+      <div className="miniScene"><img src="/kofi-stars.jpg" alt="KOFI drinks inspired by Latin America"/></div>
+      <span className="stageSpark sparkA">✦</span><span className="stageSpark sparkB">♥</span>
     </div>
-    <div className="productCarousel" aria-roledescription="carousel" aria-label="KOFI signature drinks" onTouchStart={e=>startX.current=e.touches[0].clientX} onTouchEnd={e=>{const d=e.changedTouches[0].clientX-startX.current;if(Math.abs(d)>45)move(active+(d<0?1:-1))}}>
-      <div className="productHalo" aria-hidden="true">K</div>
-      <div className="productTrack" style={{transform:`translateX(-${active*100}%)`}}>{slides.map((slide,i)=><figure className="productSlide" key={slide.src} aria-hidden={active!==i}><img src={slide.src} alt={slide.name}/><figcaption><span>0{i+1}</span>{slide.name}</figcaption></figure>)}</div>
-      <div className="carouselNav"><button onClick={()=>move(active-1)} aria-label="Previous drink">←</button><div>{slides.map((s,i)=><button key={s.src} className={i===active?'active':''} onClick={()=>setActive(i)} aria-label={`Show ${s.name}`}/>)}</div><button onClick={()=>move(active+1)} aria-label="Next drink">→</button></div>
-      <div className="heroBadge">FRESHLY<br/>MADE<br/><b>♥</b></div>
-    </div>
-    <div className="heroTicker" aria-hidden="true"><span>MATCHA</span><b>✦</b><span>COFFEE</span><b>✦</b><span>MIAMI</span><b>✦</b><span>GOOD VIBES</span></div>
+    <div className="heroTicker" aria-hidden="true"><div>MATCHA <b>✦</b> COFFEE <b>♥</b> MIAMI <b>✦</b> GOOD VIBES <b>♥</b> KOFI <b>✦</b> MATCHA <b>♥</b> COFFEE <b>✦</b> MIAMI</div></div>
   </section>
 }
