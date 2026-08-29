@@ -10,6 +10,6 @@ export default function HomeHero(){
       <img className="heroCarrier" src="/kofi-carrier.png" alt="KOFI pink drink carrier with two signature drinks"/>
       <span className="stageSpark sparkA">✦</span>
     </div>
-    <div className="heroTicker" aria-hidden="true"><div>MATCHA <b>✦</b> COFFEE <b>♥</b> MIAMI <b>✦</b> GOOD VIBES <b>♥</b> KOFI <b>✦</b> MATCHA <b>♥</b> COFFEE <b>✦</b> MIAMI</div></div>
+    <div className="heroTicker" aria-hidden="true"><div className="tickerLoop"><span>MATCHA <b>✦</b> COFFEE <b>♥</b> MIAMI <b>✦</b> GOOD VIBES <b>♥</b> KOFI <b>✦</b> MATCHA <b>♥</b> COFFEE <b>✦</b> MIAMI <b>♥</b> GOOD VIBES <b>✦</b> </span><span>MATCHA <b>✦</b> COFFEE <b>♥</b> MIAMI <b>✦</b> GOOD VIBES <b>♥</b> KOFI <b>✦</b> MATCHA <b>♥</b> COFFEE <b>✦</b> MIAMI <b>♥</b> GOOD VIBES <b>✦</b> </span></div></div>
   </section>
 }

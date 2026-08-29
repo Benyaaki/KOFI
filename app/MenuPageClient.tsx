@@ -101,10 +101,8 @@ export default function MenuPageClient() {
 
         <section className="menuV2Lists">
           <MenuList title={t.coffee} number="01" items={menu.coffee} />
-          <div className="menuV2Side">
-            <MenuList title={t.matcha} number="02" items={menu.matcha} />
-            <MenuList title={t.classics} number="03" items={menu.classics} />
-          </div>
+          <MenuList title={t.matcha} number="02" items={menu.matcha} />
+          <MenuList title={t.classics} number="03" items={menu.classics} />
         </section>
       </main>
 

@@ -34,7 +34,7 @@ export default function Home() {
         <div className="miniStamp">MADE<br />WITH<br />LOVE<br /><span>♥</span></div>
       </section>
 
-      <div className="drinkMoment drinkOne" aria-hidden="true"><img src="/drink-vanilla.png" alt=""/><span>GOOD DAYS<br/>START HERE</span></div>
+      <div className="drinkPairMoment" aria-label="Two KOFI signature iced coffees"><img className="drinkPairPrimary" src="/drink-marshmallow.png" alt="KOFI marshmallow iced coffee"/><img className="drinkPairSecondary" src="/drink-vanilla.png" alt="KOFI vanilla iced coffee"/></div>
 
       <section className="gallery" aria-label="KOFI moments">
         <figure className="galleryTall"><img src="/kofi-matcha.jpg" alt="Iced matcha in front of the KOFI truck" /></figure>
@@ -42,8 +42,6 @@ export default function Home() {
         <figure className="gallerySmall"><img src="/kofi-girl.jpg" alt="Customer enjoying a drink beside the KOFI truck" /></figure>
         <div className="galleryNote">sip<br /><em>sip</em><br />hooray! <span>✦</span></div>
       </section>
-
-      <div className="drinkMoment drinkTwo" aria-hidden="true"><span>SWEET, BOLD<br/>&amp; A LITTLE EXTRA</span><img src="/drink-marshmallow.png" alt=""/></div>
 
       <section className="menuSection" id="menu">
         <div className="sectionHead"><div><p className="sectionNo">02 — THE GOOD STUFF</p><h2>Pick your <em>mood.</em></h2></div><p>Sweet, creamy, bold or green.<br />There’s a KOFI for every version of you.</p></div>
