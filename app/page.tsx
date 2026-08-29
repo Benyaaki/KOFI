@@ -48,7 +48,7 @@ export default function Home() {
       <section className="menuSection" id="menu">
         <div className="sectionHead"><div><p className="sectionNo">02 — THE GOOD STUFF</p><h2>Pick your <em>mood.</em></h2></div><p>Sweet, creamy, bold or green.<br />There’s a KOFI for every version of you.</p></div>
         <div className="menuGrid">
-          <div className="menuPhoto cathedral"><img src="/drinks-lineup.jpg" alt="KOFI signature drink lineup" /><span className="roundLabel">FRESH<br />&amp; CUTE<br />DAILY</span></div>
+          <div className="menuPhoto cathedral"><img src="/drinks-lineup-hq.png" alt="KOFI signature drink lineup" /><span className="roundLabel">FRESH<br />&amp; CUTE<br />DAILY</span></div>
           <div className="menuList">
             {drinks.map((drink, index) => <article className="menuItem" key={drink.name}><span className="itemNumber">0{index + 1}</span><div><p className="itemTag">{drink.tag}</p><h3>{drink.name}</h3><p>{drink.detail}</p></div><strong>{drink.price}</strong></article>)}
             <a className="fullMenu" href="/menu">Get the full menu <span>→</span></a>
